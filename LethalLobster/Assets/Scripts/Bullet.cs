@@ -10,7 +10,12 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private int damage = 10; // Set your desired damage
 
+    [SerializeField]
+    private GameObject bubbleParticles;
+
     private Vector3 startPosition;
+
+
 
     private void Start()
     {
@@ -36,7 +41,15 @@ public class Bullet : MonoBehaviour
             // Call the Damage function on the AIHealth script
             aiHealth.Damage(damage);
         }
+        SoundManager.Instance.Play("Bubbles");
 
+        Instantiate(bubbleParticles, transform.position, Quaternion.identity);
+        Debug.Log(transform.position);
+        //ParticleSystem bullet = Instantiate(bulletPrefab, gunPosition.position, Quaternion.identity);
+        //Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+
+         // Use the forward direction of the gun transform
+        //Vector3 shootDirection = gunPosition.forward;
         // Destroy the bullet
         Destroy(gameObject);
     }

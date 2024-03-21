@@ -27,6 +27,7 @@ public class AIHealth : MonoBehaviour
         {
             health = 0;
             Destroy(aiGameObject);
+            SoundManager.Instance.Play("Enemy_Died");
         }
     }
 }

@@ -27,6 +27,8 @@ public class PlayerShoot : MonoBehaviour
 
         if (bulletRb != null)
         {
+            int rnd = Random.Range(1, 4);
+            SoundManager.Instance.Play("Pop_" + rnd);
             // Use the forward direction of the gun transform
             Vector3 shootDirection = gunPosition.forward;
 
