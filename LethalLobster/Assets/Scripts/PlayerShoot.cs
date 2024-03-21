@@ -40,6 +40,7 @@ public class PlayerShoot : MonoBehaviour
     {
         controls.Enable();
         controls.Player.Fire.performed += Shoot;
+        controls.Player.Quit.performed += _ => Application.Quit();
 
     }
 

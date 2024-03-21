@@ -20,7 +20,7 @@ public class AIHealth : MonoBehaviour
 
     public void Damage(int damage)
     {
-        Debug.Log(damage);
+        //Debug.Log(damage);
         if (health - damage > 0) { 
             health -= damage;
         }else
