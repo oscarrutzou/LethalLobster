@@ -10,7 +10,12 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private int damage = 10; // Set your desired damage
 
+    [SerializeField]
+    private GameObject bubbleParticles;
+
     private Vector3 startPosition;
+
+
 
     private void Start()
     {
@@ -36,6 +41,10 @@ public class Bullet : MonoBehaviour
             // Call the Damage function on the AIHealth script
             aiHealth.Damage(damage);
         }
+        SoundManager.Instance.Play("Bubbles");
+
+        Instantiate(bubbleParticles, transform.position, Quaternion.identity); 
+        //Debug.Log(transform.position);
 
         // Destroy the bullet
         Destroy(gameObject);
